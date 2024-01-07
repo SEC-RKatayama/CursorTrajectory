@@ -5,6 +5,8 @@
 #include <windows.h>
 
 
+namespace std::chrono{
+
 class CursorTracker{
     
     public:
@@ -25,7 +27,9 @@ class CursorTracker{
          * 
          * @return タイムスタンプ付きマウスカーソル座標。 (3,n): time, x, yの3行。
         */
-        std::vector<POINT> recordCursorPos(const std::chrono::duration<int, std::milli> duration, const std::chrono::duration<int, std::milli> interval,
-            std::vector<std::chrono::time_point<std::chrono::steady_clock>> &time_stamp);
+        std::vector<POINT> recordCursorPos(const chrono::duration<int, std::milli> duration, const chrono::duration<int, std::milli> interval,
+            std::vector<chrono::time_point<chrono::steady_clock>> &time_stamp);
 
 };
+
+}

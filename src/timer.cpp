@@ -1,6 +1,8 @@
 #include "timer.hpp"
 
 
+namespace std::chrono{
+
 // Constructor
 PeriodicExecutor::PeriodicExecutor() : thread_running_(false)
 {
@@ -17,10 +19,10 @@ template <typename T, typename... Args>
 void PeriodicExecutor::start(T* callback, unsigned int interval_int, Args... args){
     thread_running_ = true;
 
-    const auto interval = std::chrono::milliseconds(interval_int);
+    const auto interval = chrono::milliseconds(interval_int);
 
     timer_callback_ = std::thread([this, interval, callback, args...]() {
-        auto next = std::chrono::steady_clock::now();
+        auto next = chrono::steady_clock::now();
         while (thread_running_) {
             next += interval;
             std::this_thread::sleep_until(next);
@@ -37,6 +39,8 @@ void PeriodicExecutor::stop(){
 
     if (timer_callback_.joinable())
         timer_callback_.join();
+
+    return;
 }
 
-
+}

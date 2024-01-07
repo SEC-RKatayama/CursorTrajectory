@@ -3,6 +3,8 @@
 #include <vector>
 
 
+namespace std::chrono{
+
 class PeriodicExecutor{
     public:
         // Constructor
@@ -34,3 +36,5 @@ class PeriodicExecutor{
         std::thread timer_callback_;
         bool thread_running_;
 };
+
+}

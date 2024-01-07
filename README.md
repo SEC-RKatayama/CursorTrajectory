@@ -24,6 +24,7 @@ chmod +x ./main.exe
 
 記録されたカーソルの軌跡は画像として、実行ディレクトリに保存される。
 ファイル名は`output.png`。
+（インターバル50msで1分間記録すると、およそ500-600KB。）
 
 　
 ### Command-line arguments
